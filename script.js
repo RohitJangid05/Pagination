@@ -16,7 +16,7 @@ async function fetchApi(searchMovie, page = 1) {
         } else {
             page1.style.display = "flex"
         }
-        let api_url = `http://www.omdbapi.com/?s=${searchMovie}&page=${page}&apikey=3f154a73`
+        let api_url = `https://www.omdbapi.com/?s=${searchMovie}&page=${page}&apikey=3f154a73`
         let responseData = await fetch(api_url)
         let data = await responseData.json()
         if (data.Response == "False") {
