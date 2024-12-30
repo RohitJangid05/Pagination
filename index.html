@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Movie DB</title>
+</head>
+<body>
+    <nav>
+        <h1>MovieDB</h1>
+        <form >
+            <input id="inputField" type="text" placeholder="Enter the movie name">
+            <button id="btn">Search</button>
+        </form>
+    </nav>
+    <h1 id="movie-title"></h1>
+    <div id="pagination">
+        <ul>
+            <li id="btnLeft" onclick="decrement()"><</li>
+            <li id="page1" onclick="decrement()">0</li>
+            <li id="page2">1</li>
+            <li id="page3" onclick="increment()">2</li>
+            <li id="btnRight" onclick="increment()">></li>
+        </ul>
+    </div>
+    <main>
+        <div id="container">
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>We provide quality products at the best prices. Shop with us for a seamless experience.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: support@example.com</p>
+                <p>Phone: +123 456 7890</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+    <script src="script.js" ></script>
+</body>
+</html>
