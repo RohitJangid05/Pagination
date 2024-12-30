@@ -1,5 +1,3 @@
-import { api_key } from "./api_key.js"
-
 let btn = document.getElementById("btn")
 let movieTitle = document.getElementById("movie-title")
 let container = document.getElementById("container")
