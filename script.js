@@ -1,3 +1,5 @@
+import { api_key } from "./api_key.js"
+
 let btn = document.getElementById("btn")
 let movieTitle = document.getElementById("movie-title")
 let container = document.getElementById("container")
@@ -7,6 +9,8 @@ let page1 = document.getElementById("page1")
 let page2 = document.getElementById("page2")
 let page3 = document.getElementById("page3")
 
+let mydata = "avengers"
+let currentPage = 1
 
 async function fetchApi(searchMovie, page = 1) {
 
@@ -16,7 +20,7 @@ async function fetchApi(searchMovie, page = 1) {
         } else {
             page1.style.display = "flex"
         }
-        let api_url = `https://www.omdbapi.com/?s=${searchMovie}&page=${page}&apikey=3f154a73`
+        let api_url = `https://www.omdbapi.com/?s=${searchMovie}&page=${page}&apikey=${api_key}`
         let responseData = await fetch(api_url)
         let data = await responseData.json()
         if (data.Response == "False") {
@@ -48,9 +52,6 @@ async function fetchApi(searchMovie, page = 1) {
     }
 }
 
-let mydata = "avengers"
-let currentPage = 1
-
 function updatePages(currentPage) {
     if (currentPage >= 1) {
         page1.innerText = currentPage - 1;
@@ -69,24 +70,6 @@ function decrement() {
     updatePages(currentPage);
 }
 
-// page3.addEventListener("click", () => {
-//     increment()
-// })
-
-// btnRight.addEventListener("click", () => {
-//     increment()
-// });
-
-// page1.addEventListener("click", () => {
-//     decrement()
-// })
-
-// btnLeft.addEventListener("click", () => {
-//     decrement()
-// });
-
-fetchApi("avengers", currentPage)
-
 btn.addEventListener("click", async (e) => {
     e.preventDefault()
     let searchData = inputField.value
@@ -99,3 +82,5 @@ btn.addEventListener("click", async (e) => {
     updatePages(currentPage)
     fetchApi(searchData, currentPage)
 })
+
+fetchApi(mydata, currentPage)
