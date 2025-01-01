@@ -25,7 +25,7 @@ async function fetchApi(searchMovie, page = 1) {
         let data = await responseData.json()
         if (data.Response == "False") {
             alert("Sorry no movie found!!")
-            fetchApi(mydata)
+            fetchApi("avengers")
         }
         let movies = data.Search
         movieTitle.innerHTML = `<hr />${searchMovie} <hr />`
