@@ -1,3 +1,4 @@
+
 let btn = document.getElementById("btn")
 let movieTitle = document.getElementById("movie-title")
 let container = document.getElementById("container")
@@ -11,7 +12,7 @@ let mydata = "avengers"
 let currentPage = 1
 
 async function fetchApi(searchMovie, page = 1) {
-
+    
     try {
         if (currentPage <= 1) {
             page1.style.display = "none"
@@ -26,7 +27,7 @@ async function fetchApi(searchMovie, page = 1) {
             fetchApi("avengers")
         }
         let movies = data.Search
-        movieTitle.innerText = `${searchMovie}`
+        movieTitle.innerHTML = `<hr />${searchMovie} <hr />`
         container.innerHTML = ""
         movies.map(({ Poster, Title, Year, Type }) => {
 
