@@ -1,3 +1,4 @@
+let loader = document.getElementById("loader-container")
 
 let btn = document.getElementById("btn")
 let movieTitle = document.getElementById("movie-title")
@@ -12,19 +13,19 @@ let mydata = "avengers"
 let currentPage = 1
 
 async function fetchApi(searchMovie, page = 1) {
-    
     try {
         if (currentPage <= 1) {
             page1.style.display = "none"
         } else {
             page1.style.display = "flex"
         }
+        loader.style.display = "flex"
         let api_url = `https://www.omdbapi.com/?s=${searchMovie}&page=${page}&apikey=3f154a73`
         let responseData = await fetch(api_url)
         let data = await responseData.json()
         if (data.Response == "False") {
             alert("Sorry no movie found!!")
-            fetchApi("avengers")
+            fetchApi(mydata)
         }
         let movies = data.Search
         movieTitle.innerHTML = `<hr />${searchMovie} <hr />`
@@ -45,7 +46,7 @@ async function fetchApi(searchMovie, page = 1) {
             `
         })
         inputField.value = ""
-
+        loader.style.display = "none"
     } catch (error) {
         console.log(error.message)
     }
@@ -72,7 +73,7 @@ function decrement() {
 btn.addEventListener("click", async (e) => {
     e.preventDefault()
     let searchData = inputField.value
-    if(searchData==""){
+    if (searchData == "") {
         alert("Please Enter a move name")
         return
     }
